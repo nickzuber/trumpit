@@ -12,6 +12,12 @@
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 
+// Modules
+const ProcessTweets = require('../modules/process');
+
+
+
+
 module.exports = function(app){
 
 
@@ -26,6 +32,17 @@ module.exports = function(app){
       view: "home"
     });
 
+  });
+
+  app.get('/processRequest?', function(req, res){
+    // return twitter json
+
+    var searchTerm = req.query.q;
+
+    var pt = new ProcessTweets(searchTerm, function(response){
+      res.send(response);
+    });
+    pt.getTweets();
   });
 
   // 404

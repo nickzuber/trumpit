@@ -1,12 +1,6 @@
 
 const twitter = require('twitter');
 
-var params = {
-  screen_name: 'nick_zuber'
-}
-
-
-
 var client = new twitter({
   consumer_key: process.env.CONSUMER_KEY,
   consumer_secret: process.env.CONSUMER_SECRET,
@@ -14,10 +8,32 @@ var client = new twitter({
   access_token_secret: process.env.ACCESS_SECRET
 });
 
-client.get('search', params, function(error, tweets, response){
-  if(error){
-    throw new Error(error.message);
-  }
-  console.log(tweets); 
-  console.log(response);
-});
+
+// @TODO: this is dirty, clean it up
+const ProcessTweets = function(q, callback){
+  this.params = {
+    q: q,
+    result_type: 'mixed',
+    count: 3
+  };
+  this.callback = callback;
+}
+
+ProcessTweets.prototype.setParams = function(q){
+  this.params.q = q;
+}
+
+ProcessTweets.prototype.getTweets = function() {
+  client.get('search/tweets', this.params, function(error, response){
+    if(error){
+      throw new Error(error.message);
+    }
+    var res = [];
+    response.statuses.map(function(tweet){
+      res.push(tweet.text);
+    });
+    this.callback(res);
+  }.bind(this));
+};
+
+module.exports = ProcessTweets;
