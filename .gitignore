@@ -4,3 +4,6 @@ node_modules
 
 # Other
 npm-debug.log
+
+# Builds
+www/js/build

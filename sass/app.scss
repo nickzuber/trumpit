@@ -1,0 +1,42 @@
+
+/* Variables for RobotoDraft */
+@import "variables";
+
+/* Mixins */
+@import "mixins";
+
+/* RobotoDraft */
+@import "Thin";
+@import "Light";
+@import "Regular";
+@import "Italic";
+@import "Medium";
+@import "Bold";
+@import "BoldItalic";
+@import "Black";
+
+
+
+/* GLOBAL VARIABLES */
+
+$THEME_COLOR: #1C2432;
+$THEME_ACCENT: #1C2432;
+
+
+
+/* GENERIC STYLES */
+
+html {
+  font-family: 'RobotoDraft', sans-serif !important;
+  color: #222;
+  font-size: 18px;
+  font-weight: normal;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+body {
+  background: #eee;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

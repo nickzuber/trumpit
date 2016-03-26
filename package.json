@@ -1,0 +1,37 @@
+{
+  "name": "trumpit",
+  "version": "1.0.0",
+  "description": "Generate topical and favorable political speeches.",
+  "main": "app.js",
+  "scripts": {
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickzuber/trumpit.git"
+  },
+  "author": "Nick Zuber <zuber.nicholas@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nickzuber/trumpit/issues"
+  },
+  "homepage": "https://github.com/nickzuber/trumpit#readme",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "material-ui": "^0.14.4",
+    "node-jsx": "^0.13.3",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.5",
+    "react-tap-event-plugin": "^0.2.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.1",
+    "gulp-uglify": "^1.5.1",
+    "gulp-uglifycss": "^1.0.5",
+    "gulp-webpack": "^1.5.0",
+    "jsx-loader": "^0.13.2"
+  }
+}
