@@ -1,4 +1,4 @@
-# :trumpet: TrumpIt!
+# TrumpIt!
 
 Generate topical and favorable political speeches.
 
