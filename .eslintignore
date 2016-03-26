@@ -1,0 +1,11 @@
+# Non-JS relevent directories
+sass
+views
+www
+node_modules
+
+# Non-JS relevent extensions
+*.yml
+*.json
+*.md
+LICENSE
