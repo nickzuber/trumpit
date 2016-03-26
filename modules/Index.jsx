@@ -12,9 +12,13 @@ const FlatButton = require('material-ui/lib/flat-button');
 // Construct React component
 const app = React.createClass({
 
+  _handleClick: function(){
+    console.log('clicked!');
+  },
+
   render: function(){
     return(
-      <div>
+      <div onClick={this._handleClick}>
         hello world
       </div>
     );

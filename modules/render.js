@@ -3,7 +3,7 @@
  *  loads React onto the client. This is necessary for
  *  React functionality on the DOM load.
  *
- *  JSON __data is taken from the current page and parsed
+ *  JSON _data is taken from the current page and parsed
  *  for routing to the proper page.
  *
  */

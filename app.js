@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Allow Access To File Directory
-app.use(express.static(path.join(__dirname, 'www')))
+app.use(express.static(path.join(__dirname, 'www')));
 
 // Fixes Material-UI related warning where server side rendered data did not match
 // the client side data

@@ -1,8 +1,5 @@
 /*
- *  __________________________
- *
  *  Routing Configuration File
- *  __________________________
  *
  *  Here is where the routes to page files in
  *  the app are declared and defined. React apps
