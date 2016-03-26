@@ -3,7 +3,7 @@
 const React = require('react');
 
 // Constants
-const INTERNAL_TWITTER_API_URL = '/processRequest';
+const INTERNAL_TWITTER_BASE_API_URL = '/processRequest';
 
 // Material UI components
 const RaisedButton = require('material-ui/lib/raised-button');
@@ -16,13 +16,22 @@ const FlatButton = require('material-ui/lib/flat-button');
 const app = React.createClass({
 
   _handleResponse: function(res){
-    console.log(res);
+    // Convert string back to array
+    res = JSON.parse(res);
+
+    // Handle each tweet
+    res.map(function(tweet){
+      console.log(tweet);
+    });
   },
 
   _handleClick: function(){
     var q = document.querySelector('#q').value,
         cb = this._handleResponse,
         request;
+
+    // If no search query, abort
+    if(!q.length) return;
 
     // Create AJAX request to fetch response from server
     if(window.XMLHttpRequest){
@@ -31,7 +40,11 @@ const app = React.createClass({
       request = new ActiveXObject("Microsoft.XMLHTTP");
     }
 
-    request.open("GET", INTERNAL_TWITTER_API_URL+'?q='+q, true);
+    request.open(
+      "GET",
+      INTERNAL_TWITTER_BASE_API_URL+'?q='+q,
+      true
+    );
 
     request.onreadystatechange = function(){
       if(request.readyState == XMLHttpRequest.DONE){

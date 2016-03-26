@@ -34,9 +34,8 @@ module.exports = function(app){
 
   });
 
-  app.get('/processRequest?', function(req, res){
+  app.get('/processRequest', function(req, res){
     // return twitter json
-
     var searchTerm = req.query.q;
 
     var pt = new ProcessTweets(searchTerm, function(response){

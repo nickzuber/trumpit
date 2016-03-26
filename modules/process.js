@@ -1,5 +1,7 @@
 
 const twitter = require('twitter');
+const MIXED_RESULTS = 'mixed';
+const MAX_COUNT = 100;
 
 var client = new twitter({
   consumer_key: process.env.CONSUMER_KEY,
@@ -13,8 +15,8 @@ var client = new twitter({
 const ProcessTweets = function(q, callback){
   this.params = {
     q: q,
-    result_type: 'mixed',
-    count: 3
+    result_type: MIXED_RESULTS,
+    count: MAX_COUNT
   };
   this.callback = callback;
 }
