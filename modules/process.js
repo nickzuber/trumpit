@@ -1,6 +1,6 @@
 
 const twitter = require('twitter');
-const MIXED_RESULTS = 'mixed';
+const RESULT_TYPE = 'recent';
 const MAX_COUNT = 100;
 
 var client = new twitter({
@@ -15,7 +15,7 @@ var client = new twitter({
 const ProcessTweets = function(q, callback){
   this.params = {
     q: q,
-    result_type: MIXED_RESULTS,
+    result_type: RESULT_TYPE,
     count: MAX_COUNT
   };
   this.callback = callback;
@@ -31,6 +31,7 @@ ProcessTweets.prototype.getTweets = function() {
       throw new Error(error.message);
     }
     var res = [];
+    console.log(response);
     response.statuses.map(function(tweet){
       res.push(tweet.text);
     });
