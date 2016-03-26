@@ -10,11 +10,6 @@ const HAVEN_SENTIMENT_URL = 'https://api.havenondemand.com/1/api/sync/analyzesen
 const HAVEN_CONCEPTS_URL = 'https://api.havenondemand.com/1/api/sync/extractconcepts/v1?apikey='+HAVEN_API_KEY;
 
 
-// Material UI components
-const RaisedButton = require('material-ui/lib/raised-button');
-const FlatButton = require('material-ui/lib/flat-button');
-const Progress = require('material-ui/lib/circular-progress');
-
 // Create AJAX request to fetch response from server
 function ajax(target, callback){
   var request;
