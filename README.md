@@ -1,4 +1,4 @@
-# [Trumpit](https://github.com/nickzuber/)
+# :trumpet: TrumpIt!
 
 Generate topical and favorable political speeches.
 
