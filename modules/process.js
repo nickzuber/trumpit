@@ -1,7 +1,9 @@
 
 const twitter = require('twitter');
-const RESULT_TYPE = 'recent';
-const MAX_COUNT = 100;
+const RESULT_TYPE = 'mixed';
+const MAX_COUNT = 10;
+const LEGAL_CHAR_CODE = 256;
+const captureLinks = /(http(?:s?)[A-Za-z1-9!@#$%^&\/*()_+:"<>?,.;']*)/gmi
 
 var client = new twitter({
   consumer_key: process.env.CONSUMER_KEY,
@@ -10,6 +12,19 @@ var client = new twitter({
   access_token_secret: process.env.ACCESS_SECRET
 });
 
+function cleanString(string){
+  var cleanedString = '';
+  string.split('').map(function(character){
+    if(character.charCodeAt() < LEGAL_CHAR_CODE &&
+       character.charCodeAt() !== 35 &&
+       character.charCodeAt() !== 13 &&
+       character.charCodeAt() !== 10)
+    {
+      cleanedString += character;
+    }
+  });
+  return cleanedString;
+}
 
 // @TODO: this is dirty, clean it up
 const ProcessTweets = function(q, callback){
@@ -30,12 +45,11 @@ ProcessTweets.prototype.getTweets = function() {
     if(error){
       throw new Error(error.message);
     }
-    var res = [];
-    console.log(response);
+    var res = '';
     response.statuses.map(function(tweet){
-      res.push(tweet.text);
+      res += cleanString(tweet.text);
     });
-    this.callback(res);
+    this.callback(res.replace(captureLinks, ''));
   }.bind(this));
 };
 

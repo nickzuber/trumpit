@@ -55,7 +55,6 @@ const app = React.createClass({
     // Analyze sentiment of the tweets in a single request
     ajax(HAVEN_URL+'&text='+res, function(e){
       e = JSON.parse(e);
-      console.log(e);
       document.querySelector('.responseArea').innerHTML = 'score of: ' + e.aggregate.score;
     });
 

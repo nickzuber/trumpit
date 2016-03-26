@@ -20,7 +20,6 @@ const ProcessTweets = require('../modules/process');
 
 module.exports = function(app){
 
-
   //Default Index page
   app.get('/', function(req, res){
     var user_ip = req.headers['x-forwarded-for']||req.connection.remoteAddress||req.socket.remoteAddress||req.connection.socket.remoteAddress;
