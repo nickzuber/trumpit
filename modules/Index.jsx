@@ -77,9 +77,12 @@ const app = React.createClass({
     document.querySelector('.-retry').style.opacity = '0';
     document.querySelector('.speechArea').innerHTML = '';
     document.querySelector('.speechArea').style.opacity = '0';
+    document.querySelector('.progress-bar-wrapper').style.opacity = '0';
+    document.querySelector('.app-meter-bar').style.width = '0px';
+      document.querySelector('.app-wrapper').style.opacity = '0';
   },
 
-  _showSpeech: function(speech){
+  _showSpeech: function(speech, score){
     document.querySelector('.progress-bar').style.width = '100%';
     document.querySelector('.progress-bar-wrapper').style.opacity = '0';
     document.querySelector('.app-banner').style.height = '0px';
@@ -88,6 +91,8 @@ const app = React.createClass({
     setTimeout(function(){
       document.querySelector('.speechArea').innerHTML = '"'+correctFormatting(speech)+'"';
       document.querySelector('.speechArea').style.opacity = '1';
+      document.querySelector('.app-wrapper').style.opacity = '1';
+      document.querySelector('.app-meter-bar').style.width = ((score+1)/2)*100+'%';
       document.querySelector('.progress-bar').style.width = '0px';
       document.querySelector('.speech-text').value = '';
     }, 500);
@@ -129,7 +134,7 @@ const app = React.createClass({
         // Ready to generate speech
         var topic = document.querySelector('#q').value.toLowerCase().replace(/[^A-Za-z0-9 ]/g, '')
         var SpeechObj = new Speech(topic, cleanedKeywords, score.aggregate.score);
-        that._showSpeech(SpeechObj.speech);
+        that._showSpeech(SpeechObj.speech, SpeechObj.score);
 
       });
 
@@ -150,15 +155,15 @@ const app = React.createClass({
 
     // easter eggs
     if(q.indexOf('zodiac') > -1){
-      this._showSpeech('No comment');
+      this._showSpeech('No comment', .05);
       return;
     }
     else if(q.indexOf('benghazi') > -1){
-      this._showSpeech('FATAL ERROR: ABORTING IMMINENTLY');
+      this._showSpeech('FATAL ERROR: ABORTING IMMINENTLY', .05);
       return;
     }
     else if(q.indexOf('emails') > -1){
-      this._showSpeech('Server has been wiped: no results found');
+      this._showSpeech('Server has been wiped: no results found', .05);
       return;
     }
     else if(q.indexOf('jeb') > -1){
@@ -187,11 +192,18 @@ const app = React.createClass({
             <input className='speech-text' placeholder={suggestionWord} autoComplete='off' id='q' type='text' />
             <input className='speech-button' type='button' onClick={this._handleClick} value='Generate Speech!' />
             <div className='progress-bar-wrapper'><div className='progress-bar'></div></div>
-            <p className='app-description'>Ever wanted to be a politician, but couldn't figure out what to say? Well, now you can! <br /><br /> Toss in some important topics of today's world and have the perfect, most successful presidential speech generate right before your eyes!</p>
+            <p className='app-description'>Ever wanted to be a politician, but couldn't figure out what to say? Well, now you can! We've carefully studied the speech patterns of some of the 2016 Presidential front runners in order to have you speaking like the professionals!<br /><br />Pick a topic, hit generate, and TrumpIt! </p>
           </div>
         </div>
         
         <div className='vert-align -under'>
+          <div className='app-wrapper'>
+            <div className='app-meter-title'><h1>The Polls</h1></div>
+            <div className='app-meter'><div className="app-meter-bar"></div></div>
+            <div className='app-pos -emoji'></div>
+            <div className='app-neut -emoji'></div>
+            <div className='app-neg -emoji'></div>
+          </div>
           <div className='speechArea'></div>
           <input className='speech-button -retry' type='button' onClick={this._reset} value='Try Another?' />
         </div>

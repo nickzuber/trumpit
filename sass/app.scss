@@ -137,7 +137,7 @@ body {
 .-retry {
   opacity: 0;
   width: 500px;
-  margin: 30px auto 0;
+  margin: 30px auto 50px;
 }
 
 .logo-area {
@@ -167,4 +167,79 @@ h1 {
   margin: 10px auto;
   text-align: left;
   color: rgba(62, 62, 62, 0.6);
+}
+
+.app-meter {
+  @include transitions(500ms);
+  position: relative;
+  background: #f6f6f6;
+  border-radius: 50px;
+  width: 400px;
+  height: 20px;
+  overflow: hidden;
+  z-index: 999;
+  margin: 0 auto;
+  padding: 0;
+  margin: 0 auto 20px;
+}
+
+.app-meter-bar {
+  @include transitions(500ms);
+  background: #1E88E5;
+  width: 0px;
+  z-index: 1000;
+  position: relative;
+  border-radius: 50px;
+  height: 20px;
+  margin: 0;
+}
+
+.app-wrapper {
+  position: relative;
+  height: 100px;
+  width: 400px;
+  opacity: 0;
+  margin: 0 auto 20px;
+}
+
+.app-pos {
+  position: absolute;
+  left: 100%;
+  margin-left: -30px;
+  background-image: url("../img/happy.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+.app-neut {
+  position: absolute;
+  left: 50%;
+  margin-left: -15px;
+  background-image: url("../img/neutral.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+.app-neg {
+  position: absolute;
+  left: 0;
+  background-image: url("../img/angry.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+.-emoji {
+  height: 30px;
+  width: 30px;
+  bottom: 0;
+}
+
+.app-meter-title {
+  margin: 0 auto 5px;
+  text-align: center;
+}
+.app-meter-title h1 {
+  margin: 0 auto 10px;
+  font-size: 1.35em;
 }

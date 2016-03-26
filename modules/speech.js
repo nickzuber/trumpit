@@ -19,7 +19,7 @@ const POS_MED = [
   '<noun> can be wonderful if you have smart people, but we have people that are stupid.',
   'I\'m going to save <noun>. I\'m going to bring <noun> back from China.',
   'We like <noun>, <noun> is our friend.',
-  'I mean, where were my oponents when I was supporting <noun> back in the day?',
+  'I mean, where were my opponents when I was supporting <noun> back in the day?',
   'We always like to talk about <noun>, and who wouldn\'t? It\'s good stuff.',
   'We need leaders that are protecting <noun>.',
   '<noun> is a beautiful thing in many respects.',
@@ -97,8 +97,8 @@ const CLOSINGS = [
 const NONSENSE = [
   'I do think this: It’s an unbelievable thing that they’ve done, it’s unbelievable lack of respect for <noun>.',
   'Have you seen the polls by the way? Crazy stuff, I’m doing so well.',
-  'Nobody can do that like me. Believe me. It will be done on time, on budget, way below cost, way below what anyone ever thought.',
-  'I\'m doing that to say that that’s the kind of thinking our country needs. We need that thinking. Right now, we have the opposite thinking.',
+  'Nobody can do <noun> like me. Believe me. It will be done on time, on budget, way below cost, way below what anyone ever thought.',
+  'We need that kind of thinking. Because right now, we have the opposite thinking.',
   'I know the smartest <noun>s in the world. I know the good ones. I know the bad ones. I know the overrated ones.',
   'Jeb is so wrong. What a mess.',
   'Mitt Romney.'
@@ -192,9 +192,10 @@ Speech.prototype.speechify = function(arr){
     availableEntries.push(i);
   };
   availableEntries = shuffle(availableEntries);
+  var cachedSize = availableEntries.length;
 
   //for(var i=0; i<Math.floor(array_size/2); ++i){
-  while(availableEntries.length >= 2){
+  while(availableEntries.length >= cachedSize/2){
 
     // choose between topic or a keyword
     if(Math.random() < .5){
@@ -205,7 +206,7 @@ Speech.prototype.speechify = function(arr){
     }
 
     // choose between relevent sentence or nonsense
-    if(Math.random() < .75){
+    if(Math.random() < .8){
       this.concat(
         arr[availableEntries.shift()],
         random_word
