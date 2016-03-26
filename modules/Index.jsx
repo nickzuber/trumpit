@@ -67,7 +67,7 @@ function correctFormatting(text){
 }
 
 // Module components
-// .
+// if we HAD ANY
 
 // Construct React component
 const app = React.createClass({
@@ -86,7 +86,7 @@ const app = React.createClass({
     
     // show speech
     setTimeout(function(){
-      document.querySelector('.speechArea').innerHTML = correctFormatting(speech);
+      document.querySelector('.speechArea').innerHTML = '"'+correctFormatting(speech)+'"';
       document.querySelector('.speechArea').style.opacity = '1';
       document.querySelector('.progress-bar').style.width = '0px';
       document.querySelector('.speech-text').value = '';
@@ -127,7 +127,7 @@ const app = React.createClass({
         document.querySelector('.progress-bar').style.width = (Math.floor(Math.random() * 95) + 80)+'%';
 
         // Ready to generate speech
-        var topic = document.querySelector('#q').value.toLowerCase().replace(/[^A-Za-z0-9]/g, '')
+        var topic = document.querySelector('#q').value.toLowerCase().replace(/[^A-Za-z0-9 ]/g, '')
         var SpeechObj = new Speech(topic, cleanedKeywords, score.aggregate.score);
         that._showSpeech(SpeechObj.speech);
 
@@ -138,7 +138,7 @@ const app = React.createClass({
   },
 
   _handleClick: function(){
-    var q = document.querySelector('#q').value.toLowerCase().replace(/[^A-Za-z0-9]/g, '');
+    var q = document.querySelector('#q').value.toLowerCase().replace(/[^A-Za-z0-9 ]/g, '');
 
     // If no search query, abort
     if(!q.length) return;
@@ -187,6 +187,7 @@ const app = React.createClass({
             <input className='speech-text' placeholder={suggestionWord} autoComplete='off' id='q' type='text' />
             <input className='speech-button' type='button' onClick={this._handleClick} value='Generate Speech!' />
             <div className='progress-bar-wrapper'><div className='progress-bar'></div></div>
+            <p className='app-description'>Ever wanted to be a politician, but couldn't figure out what to say? Well, now you can! <br /><br /> Toss in some important topics of today's world and have the perfect, most successful presidential speech generate right before your eyes!</p>
           </div>
         </div>
         

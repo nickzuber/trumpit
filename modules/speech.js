@@ -42,7 +42,7 @@ const NEG_LOW = [
   'Remember this, our <noun>s will be paid for by Mexico. This I can tell you.',
   'I believe in <noun>, but I believe in efficient <noun>, not wasteful <noun>.',
   '<noun> has potential to not be bad, so we should work on that.',
-  'I would like to take a hard look at every part of <noun> and really do the kind of analysis that would rebuild some confidence in people, because right now, how can we be expected to support <noun> as a country?'
+  'I would like to take a hard look at every part of <noun> and really do the kind of analysis that would rebuild some confidence in people, because right now, how can we be expected to support <noun> as a country?',
   'Listen, we\'ve got lots of challenges with <noun>. But the answer can\'t just be wave a magic wand and say problem go away. You have to understand <noun>. You have to have real solutions.',
   'It will now allow them to become set permanent and in stone.',
   'I have a fundamental disagreement and I think most Americans do, that we shouldn\'t be allowing billions of dollars to go to <noun>.',

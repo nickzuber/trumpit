@@ -1,6 +1,7 @@
 
 /* Variables for RobotoDraft */
 @import "variables";
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
 
 /* Mixins */
 @import "mixins";
@@ -34,7 +35,7 @@ $THEME_SECOND: #28cb75;
 /* GENERIC STYLES */
 
 html {
-  font-family: 'RobotoDraft', sans-serif !important;
+  font-family: 'RobotoDraft', sans-serif;
   color: #222;
   font-size: 18px;
   font-weight: normal;
@@ -151,11 +152,19 @@ body {
   background-position: center center;
 }
 
-.speech-area {
-  @include transitions(500ms);
+.speechArea {
+  @include transitions(1000ms);
+  font-family: 'Coming Soon' !important;
   line-height: 25px;
 }
 
 h1 {
   margin: 0 0 25px;
+}
+
+.app-description {
+  width: 400px;
+  margin: 10px auto;
+  text-align: left;
+  color: rgba(62, 62, 62, 0.6);
 }
