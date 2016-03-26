@@ -1,7 +1,7 @@
 
 const twitter = require('twitter');
 const RESULT_TYPE = 'mixed';
-const MAX_COUNT = 10;
+const MAX_COUNT = 50;
 const LEGAL_CHAR_CODE = 256;
 const captureLinks = /(http(?:s?)[A-Za-z1-9!@#$%^&\/*()_+:"<>?,.;']*)/gmi
 
@@ -49,7 +49,7 @@ ProcessTweets.prototype.getTweets = function() {
     response.statuses.map(function(tweet){
       res += cleanString(tweet.text);
     });
-    this.callback(res.replace(captureLinks, ''));
+    this.callback(res.replace(captureLinks, '').replace('RT', ''));
   }.bind(this));
 };
 

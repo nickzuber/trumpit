@@ -1,10 +1,10 @@
 
 /* MIXINS */
 
-@mixin shallow-rise { box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24); }
-@mixin low-rise { box-shadow: 0 5px 20px rgba(0,0,0,0.12),0 4px 11px rgba(0,0,0,0.23);}
-@mixin mid-rise { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.23); }
-@mixin deep-rise { box-shadow: 0 19px 60px rgba(0, 0, 0, 0.30), 0 15px 20px rgba(0, 0, 0, 0.22); }
+@mixin d1 { box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24); }
+@mixin d2 { box-shadow: 0 5px 20px rgba(0,0,0,0.12),0 4px 11px rgba(0,0,0,0.23);}
+@mixin d3 { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.23); }
+@mixin d4 { box-shadow: 0 19px 60px rgba(0, 0, 0, 0.30), 0 15px 20px rgba(0, 0, 0, 0.22); }
 
 @mixin transitions($timing) {
   transition: all $timing cubic-bezier(0.23, 1, 0.32, 1) 0s;
