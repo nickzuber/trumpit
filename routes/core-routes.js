@@ -16,8 +16,6 @@ const ReactDOMServer = require('react-dom/server');
 const ProcessTweets = require('../modules/process');
 
 
-
-
 module.exports = function(app){
 
   //Default Index page
@@ -41,6 +39,7 @@ module.exports = function(app){
       res.send(response);
     });
     pt.getTweets();
+
   });
 
   // 404

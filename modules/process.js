@@ -5,11 +5,13 @@ const MAX_COUNT = 50;
 const LEGAL_CHAR_CODE = 256;
 const captureLinks = /(http(?:s?)[A-Za-z1-9!@#$%^&\/*()_+:"<>?,.;']*)/gmi
 
+const process_env = require('../keys');
+
 var client = new twitter({
-  consumer_key: process.env.CONSUMER_KEY,
-  consumer_secret: process.env.CONSUMER_SECRET,
-  access_token_key: process.env.ACCESS_TOKEN,
-  access_token_secret: process.env.ACCESS_SECRET
+  consumer_key: process_env.CONSUMER_KEY,
+  consumer_secret: process_env.CONSUMER_SECRET,
+  access_token_key: process_env.ACCESS_TOKEN,
+  access_token_secret: process_env.ACCESS_SECRET
 });
 
 function cleanString(string){
@@ -41,6 +43,7 @@ ProcessTweets.prototype.setParams = function(q){
 }
 
 ProcessTweets.prototype.getTweets = function() {
+  console.log('Fetching tweets...');
   client.get('search/tweets', this.params, function(error, response){
     if(error){
       throw new Error(error.message);

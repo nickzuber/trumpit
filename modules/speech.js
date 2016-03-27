@@ -147,7 +147,7 @@ const Speech = function(topic, keywords, score){
 
 Speech.prototype.generate = function(){
   var score = parseFloat(this.score, 10);
-  console.log(score);
+  
   if(1 >= score && score > 0.66){
     this.speechify(POS_HIGH);
   }
@@ -198,15 +198,14 @@ Speech.prototype.speechify = function(arr){
   while(availableEntries.length >= cachedSize/2){
 
     // choose between topic or a keyword
-    if(Math.random() < .5){
-      console.log('keyword: ' + this.keywords[Math.floor(Math.random() * keywords_size)]);
+    if(Math.random() < .7){
       random_word = this.keywords[Math.floor(Math.random() * keywords_size)];
     }else{
       random_word = this.topic;
     }
 
     // choose between relevent sentence or nonsense
-    if(Math.random() < .8){
+    if(Math.random() < .7){
       this.concat(
         arr[availableEntries.shift()],
         random_word
@@ -216,6 +215,7 @@ Speech.prototype.speechify = function(arr){
         NONSENSE[Math.floor(Math.random() * NONSENSE.length)],
         random_word
       );
+      console.log('Using: ' + random_word);
     }
   }
 

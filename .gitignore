@@ -7,3 +7,6 @@ npm-debug.log
 
 # Builds
 www/js/build
+
+#API keys
+keys.js

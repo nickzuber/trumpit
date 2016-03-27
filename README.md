@@ -24,7 +24,7 @@ $ node app
 
 **Notice:**
 
-I use environment variables to configure the Twitter API, so for this application to run on your local machine you're going to have to set up your own Twitter app and supply the credentials.
+I use local environment variables to configure the Twitter API, so for this application to run on your local machine you're going to have to set up your own Twitter app and supply the credentials.
 
 ## License
 [MIT](https://opensource.org/licenses/MIT)

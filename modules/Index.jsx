@@ -102,12 +102,21 @@ const app = React.createClass({
     var that = this;
     // 'res' holds all tweet data
 
+    if(!res.length){
+      console.log('Twitter gave us nothing... everyone thank Twitter.');
+      res = 'Twitter sucks';
+    }else{
+      console.log('Analyzing data...');
+    }
+
     // Analyze sentiment of the tweets in a single request
     ajax(HAVEN_SENTIMENT_URL+'&text='+res, function(score){
       score = JSON.parse(score);
       
-      // @TEST
+      // progress bar update
       document.querySelector('.progress-bar').style.width = (Math.floor(Math.random() * 70) + 50)+'%';
+
+      console.log('Extracting concepts...');
 
       ajax(HAVEN_CONCEPTS_URL+'&text='+res, function(keywords){
         keywords = JSON.parse(keywords);
@@ -118,13 +127,13 @@ const app = React.createClass({
         var cleanedKeywords = [];
 
         keywords.concepts.map(function(word){
-          console.log(word)
           if(word.concept.length <= 3) return;
           if(word.occurrences <= 1) return;
           cleanedKeywords.push(word.concept);
         });
 
         document.querySelector('.progress-bar').style.width = (Math.floor(Math.random() * 95) + 80)+'%';
+        console.log('Generating speech...');
 
         // Ready to generate speech
         var topic = document.querySelector('#q').value.toLowerCase().replace(/[^A-Za-z0-9 ]/g, '')
@@ -145,7 +154,7 @@ const app = React.createClass({
 
     document.querySelector('.progress-bar-wrapper').style.opacity = '1';
     document.querySelector('.progress-bar').style.width = (Math.floor(Math.random() * 40) + 15)+'%';
-    console.log(q);
+    console.log('Searching "'+q+'"...');
 
 
     // easter eggs
