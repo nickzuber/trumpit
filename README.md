@@ -1,4 +1,4 @@
-# [TrumpIt!](www.drump.fit)
+# [TrumpIt!](http://www.drump.fit)
 
 Generate topical and favorable political speeches.
 
@@ -8,7 +8,7 @@ Ever wanted to be a politician, but couldn't figure out what to say? Well, now y
 
 Pick a topic, hit generate, and TrumpIt! 
 
-[See it in action here](www.drump.fit)
+[See it in action here](http://www.drump.fit)
 
 ## Usage
 
