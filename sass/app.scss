@@ -136,7 +136,7 @@ body {
 
 .-retry {
   opacity: 0;
-  width: 500px;
+  width: 400px;
   margin: 30px auto 50px;
 }
 
@@ -156,6 +156,8 @@ body {
   @include transitions(1000ms);
   font-family: 'Coming Soon' !important;
   line-height: 25px;
+  width: 400px;
+  margin: 0 auto;
 }
 
 h1 {

@@ -74,7 +74,7 @@ const app = React.createClass({
     document.querySelector('.speechArea').style.opacity = '0';
     document.querySelector('.progress-bar-wrapper').style.opacity = '0';
     document.querySelector('.app-meter-bar').style.width = '0px';
-      document.querySelector('.app-wrapper').style.opacity = '0';
+    document.querySelector('.app-wrapper').style.opacity = '0';
   },
 
   _showSpeech: function(speech, score){
