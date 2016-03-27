@@ -72,7 +72,7 @@ body {
 
 .speech-button {
   background: $THEME_SECOND;
-  @include transitions(500ms);
+  @include transitions(250ms);
   border-radius: 3px;
   padding: 15px;
   font-size: 18px;
@@ -83,6 +83,10 @@ body {
   border: 0;
   display: block;
   margin: 10px auto;
+}
+
+.speech-button:active {
+  background: #2AAD68 !important;
 }
 
 .speech-text {
@@ -244,4 +248,36 @@ h1 {
 .app-meter-title h1 {
   margin: 0 auto 10px;
   font-size: 1.35em;
+}
+
+.nav-bar {
+  @include d2;
+  @include transitions(750ms);
+  position: fixed;
+  height: 35px;
+  width: 100%;
+  left: 0;
+  background: #242424;
+  z-index: 99999;
+  margin-top: -35px;
+  padding: 0;
+}
+
+.github-link {
+  @include transitions(500ms);
+  height: 35px;
+  position: absolute;
+  width: 35px;
+  padding: 0;
+  left: 50%;
+  margin-left: -17.5px;
+  background-image: url("../img/github.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  cursor: pointer;
+}
+
+.github-link:hover {
+  opacity: .7;
 }

@@ -172,6 +172,11 @@ const app = React.createClass({
 
   },
 
+  _openGithub: function(){
+    var win = window.open("https://github.com/nickzuber/trumpit", '_blank');
+    win.focus();
+  },
+
   render: function(){
 
     var genWords = ['Immigration', 'Abortion', 'Health Care', 'Fast and Furious', 'Who is the Zodiac Killer'];
@@ -180,6 +185,9 @@ const app = React.createClass({
 
     return(
       <div>
+        <div className='nav-bar'>
+          <div className='github-link' onClick={this._openGithub}></div>
+        </div>
         <div className="app-banner">
           <div className='vert-align'>
             <div className='logo-area'></div>

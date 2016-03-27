@@ -23,8 +23,10 @@
   <script data-main="js/config" src="js/libs/require.js"></script>
   <script>
     require(['config'], function(){
-      require([], function(){
-        //
+      require(['jquery'], function($){
+        $(function(){
+          document.querySelector('.nav-bar').style.marginTop = '0px';
+        });
       });
     });
   </script>

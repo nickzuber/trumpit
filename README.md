@@ -1,4 +1,4 @@
-# TrumpIt!
+# [TrumpIt!](www.drump.fit)
 
 Generate topical and favorable political speeches.
 
@@ -8,6 +8,7 @@ Ever wanted to be a politician, but couldn't figure out what to say? Well, now y
 
 Pick a topic, hit generate, and TrumpIt! 
 
+[See it in action here](www.drump.fit)
 
 ## Usage
 
@@ -20,6 +21,10 @@ $ npm install
 $ npm run build
 $ node app
 ```
+
+**Notice:**
+
+I use environment variables to configure the Twitter API, so for this application to run on your local machine you're going to have to set up your own Twitter app and supply the credentials.
 
 ## License
 [MIT](https://opensource.org/licenses/MIT)
