@@ -147,7 +147,7 @@ const app = React.createClass({
   },
 
   _handleClick: function(){
-    var q = document.querySelector('#q').value.toLowerCase().replace(/[^A-Za-z0-9 ]/g, '').substring(100);
+    var q = document.querySelector('#q').value.toLowerCase().replace(/[^A-Za-z0-9 ]/g, '').substring(0,100);
 
     // If no search query, abort
     if(!q.length) return;
