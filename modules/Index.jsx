@@ -67,6 +67,12 @@ function correctFormatting(text){
 // Construct React component
 const app = React.createClass({
 
+  getInitialState: function() {
+    return {
+      working: false
+    };
+  },
+
   _reset: function(){
     document.querySelector('.app-banner').style.height = '100%';
     document.querySelector('.-retry').style.opacity = '0';
@@ -78,9 +84,12 @@ const app = React.createClass({
   },
 
   _showSpeech: function(speech, score){
+    document.querySelector('.speech-button').classList.remove('-waiting');
     document.querySelector('.progress-bar').style.width = '100%';
     document.querySelector('.progress-bar-wrapper').style.opacity = '0';
     document.querySelector('.app-banner').style.height = '0px';
+
+    this.state.working = false;
     
     // show speech
     setTimeout(function(){
@@ -126,10 +135,13 @@ const app = React.createClass({
 
         var cleanedKeywords = [];
 
+        console.log('Concepts extracted:');
+
         keywords.concepts.map(function(word){
           if(word.concept.length <= 3) return;
           if(word.occurrences <= 1) return;
           cleanedKeywords.push(word.concept);
+          console.log(' - '+word.concept);
         });
 
         document.querySelector('.progress-bar').style.width = (Math.floor(Math.random() * 95) + 80)+'%';
@@ -147,14 +159,21 @@ const app = React.createClass({
   },
 
   _handleClick: function(){
+
+    // If we're already generating a speech, don't allow someone to spam generate button
+    if(this.state.working) return;
+
     var q = document.querySelector('#q').value.toLowerCase().replace(/[^A-Za-z0-9 ]/g, '').substring(0,100);
 
     // If no search query, abort
     if(!q.length) return;
 
+    document.querySelector('.speech-button').classList.add('-waiting');
     document.querySelector('.progress-bar-wrapper').style.opacity = '1';
     document.querySelector('.progress-bar').style.width = (Math.floor(Math.random() * 40) + 15)+'%';
     console.log('Searching "'+q+'"...');
+
+    this.state.working = true;
 
 
     // easter eggs

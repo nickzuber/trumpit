@@ -281,3 +281,13 @@ h1 {
 .github-link:hover {
   opacity: .7;
 }
+
+.-waiting {
+  opacity: .25 !important;
+  outline: none;
+  cursor: default !important;
+}
+
+.-waiting:hover {
+  background: $THEME_SECOND !important;
+}

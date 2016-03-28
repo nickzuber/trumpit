@@ -216,7 +216,6 @@ Speech.prototype.speechify = function(arr){
         random_word
       );
     }
-    console.log('Using: ' + random_word);
   }
 
   // closing
