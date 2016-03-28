@@ -49,6 +49,13 @@ body {
   overflow-x: hidden;
 }
 
+::selection {
+  background: rgba(141, 213, 255, 0.5);
+}
+::-moz-selection {
+  background: rgba(141, 213, 255, 0.5);
+}
+
 
 /* INDEX APP */
 
