@@ -147,7 +147,7 @@ const Speech = function(topic, keywords, score){
 
 Speech.prototype.generate = function(){
   var score = parseFloat(this.score, 10);
-  
+
   if(1 >= score && score > 0.66){
     this.speechify(POS_HIGH);
   }
@@ -215,8 +215,8 @@ Speech.prototype.speechify = function(arr){
         NONSENSE[Math.floor(Math.random() * NONSENSE.length)],
         random_word
       );
-      console.log('Using: ' + random_word);
     }
+    console.log('Using: ' + random_word);
   }
 
   // closing
