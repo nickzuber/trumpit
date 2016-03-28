@@ -20,11 +20,7 @@ function ajax(target, callback){
     request = new ActiveXObject("Microsoft.XMLHTTP");
   }
 
-  request.open(
-    "GET",
-    target,
-    true
-  );
+  request.open("GET", target, true);
 
   request.onreadystatechange = function(){
     if(request.readyState == XMLHttpRequest.DONE){
