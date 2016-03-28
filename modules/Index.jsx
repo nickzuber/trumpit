@@ -201,7 +201,7 @@ const app = React.createClass({
           <div className='vert-align'>
             <div className='logo-area'></div>
             <h1>TrumpIt</h1>
-            <input className='speech-text' placeholder={suggestionWord} autoComplete='off' id='q' type='text' />
+            <input className='speech-text' maxLength='100' placeholder={suggestionWord} autoComplete='off' id='q' type='text' />
             <input className='speech-button' type='button' onClick={this._handleClick} value='Generate Speech!' />
             <div className='progress-bar-wrapper'><div className='progress-bar'></div></div>
             <p className='app-description'>Ever wanted to be a politician, but couldn't figure out what to say? Well, now you can! We've carefully studied the speech patterns of some of the 2016 Presidential front runners in order to have you speaking like the professionals!<br /><br />Pick a topic, hit generate, and let us TrumpIt! </p>
